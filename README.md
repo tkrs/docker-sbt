@@ -5,19 +5,19 @@ This repository contains **Dockerfile** of [Scala](http://www.scala-lang.org) an
 
 ## Base Docker Image ##
 
-* [tkrs/openjdk-debian](https://hub.docker.com/r/tkrs/openjdk-debian)
+* [openjdk](https://hub.docker.com/_/openjdk)
 
 
 ## Installation ##
 
 1. Install [Docker](https://www.docker.com)
-2. Pull [automated build](https://hub.docker.com/r/tkrs/scala-sbt/) from public [Docker Hub Registry](https://registry.hub.docker.com):
+2. Pull [automated build](https://hub.docker.com/r/tkrs/sbt/) from public [Docker Hub Registry](https://registry.hub.docker.com):
 ```
 docker pull tkrs/sbt
 ```
 Alternatively, you can build an image from Dockerfile:
 ```
-docker build -t tkrs/sbt github.com/tkrs/docker-sbt
+docker build -t tkrs/sbt github.com/tkrs/sbt
 ```
 
 
