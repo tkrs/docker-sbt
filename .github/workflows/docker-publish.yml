@@ -24,7 +24,7 @@ jobs:
     if: github.event_name == 'push'
     steps:
       - uses: actions/checkout@v2
-      - name: stable push
+      - name: push
         uses: docker/build-push-action@v1
         with:
           username: ${{ github.actor }}
