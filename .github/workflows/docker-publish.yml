@@ -8,9 +8,6 @@ on:
       - '*'
   pull_request:
 
-env:
-  IMAGE_NAME: sbt
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -24,7 +21,15 @@ jobs:
     if: github.event_name == 'push'
     steps:
       - uses: actions/checkout@v2
-      - name: push to Github Registry
+      - name: push to GitHub Container Registry
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+          registry: ghcr.io
+          repository: ${{ github.actor }}/sbt
+          tag_with_ref: true
+      - name: push to GitHub Registry
         uses: docker/build-push-action@v1
         with:
           username: ${{ github.actor }}
@@ -38,4 +43,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: ${{ secrets.DOCKERHUB_USER }}/sbt
+          tag_with_ref: true
+      - name: push to Quay.io Registry
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.QUAY_USER }}
+          password: ${{ secrets.QUAY_TOKEN }}
+          registry: quay.io
+          repository: ${{ secrets.QUAY_USER }}/sbt
           tag_with_ref: true
