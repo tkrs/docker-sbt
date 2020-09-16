@@ -1,4 +1,4 @@
-FROM openjdk:14-buster
+FROM openjdk:15-buster
 
 ENV SBT_VERSION 1.3.13
 
