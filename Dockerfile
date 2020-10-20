@@ -1,6 +1,6 @@
 FROM openjdk:15-buster
 
-ENV SBT_VERSION 1.4.0
+ENV SBT_VERSION 1.4.1
 
 RUN curl -L -sSo "sbt-$SBT_VERSION.deb" "https://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb" && \
   dpkg -i "sbt-$SBT_VERSION.deb" && \
